@@ -17,7 +17,8 @@
   <meta name="twitter:title" content="AWWsome Toolkit">
   <meta name="twitter:description" content="Android, Windows, and web utilities for tinkering, maintenance, and automation workflows.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/awwsome-toolkit/logo.png">
-  <link rel="stylesheet" href="../assets/style.css?v=20260509-8">
+  <link rel="stylesheet" href="../assets/style.css?v=20260510-1">
+  <script src="../assets/site.js?v=20260510-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,10 +38,10 @@
 <body class="theme-awwsome">
   <main class="site-shell">
     <nav class="nav page-nav" aria-label="Site">
-      <a class="pill" href="../index.html">Home</a>
-      <a class="pill" href="../remember/index.html">Remember</a>
-      <a class="pill" href="../filepipe/index.html">FilePipe</a>
-      <a class="pill" href="../obtainx/index.html">ObtainX</a>
+      <a class="pill" href="../">Home</a>
+      <a class="pill" href="../remember/">Remember</a>
+      <a class="pill" href="../filepipe/">FilePipe</a>
+      <a class="pill" href="../obtainx/">ObtainX</a>
       <span class="pill primary" aria-current="page">AWWsome Toolkit</span>
     </nav>
     <section class="hero project-hero">
@@ -52,12 +53,12 @@
           <span class="meta-chip">Web</span>
         </div>
         <p class="lede">
-          Scripts, guides, and small tools for Android, Windows, and the web — for tasks that benefit from repeatable automation but are too platform-specific to find off the shelf.
+          A collection of small, platform-specific tools and guides for Android, Windows, and the web — built for tasks that benefit from repeatable automation and written to be understood before they're run.
         </p>
         <section class="content-card">
-          <h2>Practical Scripts</h2>
+          <h2>Why It Exists</h2>
           <p>
-            The toolkit collects scripts and guides for platform-specific work: Android boot image patching, Windows Start Menu cleanup, Google Apps Script calendar sync, and more — each written to be read before it is run.
+            I built these tools to keep my own system tidy. Windows kept rearranging my Start Menu every time I installed or updated something, and the registry tweaks I found online lived in scattered notes until I scripted them for myself. Eventually I realized I was building a small library of fixes for everyday annoyances — and that others might need them too.
           </p>
         </section>
       </div>
@@ -65,9 +66,9 @@
         <img class="app-logo" src="logo.png" alt="AWWsome Toolkit logo">
         <nav class="nav" aria-label="AWWsome Toolkit links">
           <a class="pill primary" href="https://github.com/bikram-agarwal/AWWsome-Toolkit" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">Source on GitHub</a>
-          <a class="pill" href="https://bikram-agarwal.github.io/AWWsome-Toolkit/" target="_blank" rel="noopener">Project Docs</a>
-          <a class="pill" href="privacy.html">Privacy</a>
-          <a class="pill" href="terms.html">Terms</a>
+          <a class="pill" href="https://bikram-agarwal.github.io/AWWsome-Toolkit/" target="_blank" rel="noopener">GitHub Star Feeds</a>
+          <a class="pill" href="privacy/">Privacy</a>
+          <a class="pill" href="terms/">Terms</a>
         </nav>
       </div>
     </section>
@@ -75,15 +76,15 @@
     <section class="feature-grid" aria-label="AWWsome Toolkit features">
       <article class="feature-card">
         <h3>Android Utilities</h3>
-        <p>A PowerShell script that automates Pixel boot image patching for KernelSU GKI root, plus documentation for extracting AI models from Pixel factory images.</p>
+        <p>A PowerShell script that automates Google Pixel boot image patching for gaining root access, plus documentation for extracting AI models from Pixel device factory images.</p>
       </article>
       <article class="feature-card">
         <h3>Windows Automation</h3>
-        <p>Start Menu backup, enforcement, and duplicate detection — with dry-run preview and scheduled daily automation. Plus a system cleanup tool for browser caches, driver files, and Windows Installer orphans.</p>
+        <p>Enforce Start Menu layouts, repair moved-drive shortcuts, inventory installed apps, reset Xbox/Game Pass, toggle hidden Windows features, bootstrap Android tooling, and audit or clean driver/system caches.</p>
       </article>
       <article class="feature-card">
         <h3>Web Workflows</h3>
-        <p>A Google Apps Script that syncs Entertainment calendar events into a Google Tasks Backlog — bidirectional: tasks complete when events are marked watched, and vice versa. Includes a themed browser dashboard.</p>
+        <p>A Google Apps Script that syncs calendar events into a Google Tasks Backlog — bidirectionally: tasks complete when events are marked done, and vice versa. Includes a themed browser dashboard.</p>
       </article>
       <article class="feature-card">
         <h3>Built for Review</h3>
@@ -95,8 +96,32 @@
       <a class="pill" href="https://github.com/bikram-agarwal/AWWsome-Toolkit/blob/main/README.md" target="_blank" rel="noopener">… and more on GitHub</a>
     </div>
 
+    <section class="screenshot-section" aria-labelledby="screenshots-title">
+      <h2 id="screenshots-title">Screenshots</h2>
+      <div class="screenshot-grid freeform">
+        <figure class="screenshot-card">
+          <button class="screenshot-button" type="button" data-screenshot-src="screenshots/calendar_task_sync.webp" aria-labelledby="caption-calendar-task-sync">
+            <img class="freeform-shot" loading="lazy" src="screenshots/calendar_task_sync.webp" alt="">
+          </button>
+          <figcaption id="caption-calendar-task-sync">Calendar Task Sync tool: Showing how the tool can be used to sync calendar events with a Google Tasks Backlog.</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <button class="screenshot-button" type="button" data-screenshot-src="screenshots/start_menu.webp" aria-labelledby="caption-start-menu">
+            <img class="freeform-shot" loading="lazy" src="screenshots/start_menu.webp" alt="">
+          </button>
+          <figcaption id="caption-start-menu">Start Menu Manager tool: Enforce mode. Showing how the tool can be used to enforce a saved Start Menu layout.</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <button class="screenshot-button" type="button" data-screenshot-src="screenshots/folder_icon.webp" aria-labelledby="caption-folder-icon">
+            <img class="freeform-shot" loading="lazy" src="screenshots/folder_icon.webp" alt="">
+          </button>
+          <figcaption id="caption-folder-icon">Folder Icon Setter tool showing how to select and apply icons to folders.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      Made with ❤️ by <a href="../index.html">Bikram Agarwal</a>
+      Made with ❤️ by <a href="../">Bikram Agarwal</a>
     </footer>
   </main>
 </body>

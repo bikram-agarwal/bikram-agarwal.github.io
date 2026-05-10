@@ -153,6 +153,42 @@ a {
   view-transition-name: page-shell;
 }
 
+.construction-tape {
+  position: fixed;
+  bottom: clamp(3rem, 10vw, 7rem);
+  left: clamp(-10rem, -12vw, -4rem);
+  z-index: 20;
+  display: flex;
+  width: max(44rem, 130vw);
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: 0.55rem 2rem;
+  border-block: 2px solid rgb(42 35 8 / 60%);
+  color: #1f1a07;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgb(255 206 52) 0 1.1rem,
+      rgb(22 20 13) 1.1rem 2.2rem
+    );
+  box-shadow: 0 16px 40px rgb(0 0 0 / 22%);
+  font-size: clamp(0.85rem, 2.4vw, 1.2rem);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: rotate(-9deg);
+  transform-origin: left center;
+}
+
+.construction-tape span {
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  background: rgb(255 235 126 / 90%);
+  box-shadow: 0 0 0 1px rgb(42 35 8 / 22%);
+  white-space: nowrap;
+}
+
 .hero {
   padding: 3rem 0 2rem;
 }
@@ -478,11 +514,13 @@ h3 {
 .screenshot-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  align-items: start;
   gap: 0.625rem;
   margin-top: 1.5rem;
 }
 
 .screenshot-card {
+  align-self: start;
   margin: 0;
   overflow: hidden;
   border-radius: 1.5rem;
@@ -511,6 +549,29 @@ h3 {
   display: block;
   width: 100%;
   aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.screenshot-grid.freeform {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+.screenshot-grid.freeform .screenshot-card {
+  min-width: 0;
+}
+
+.screenshot-grid.freeform .screenshot-button {
+  height: clamp(12rem, 24vw, 18rem);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-strong) 42%, transparent);
+}
+
+.freeform-shot {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
 }
@@ -547,6 +608,10 @@ h3 {
   box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
 }
 
+.image-dialog.freeform {
+  width: min(96vw, 88rem);
+}
+
 .image-dialog:focus {
   outline: none;
 }
@@ -568,6 +633,11 @@ h3 {
   max-height: calc(94vh - 5.5rem);
   object-fit: contain;
   transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.image-dialog.freeform .dialog-image {
+  max-height: calc(94vh - 4.75rem);
+  background: color-mix(in srgb, var(--surface-strong) 42%, transparent);
 }
 
 .dialog-caption {
@@ -659,4 +729,5 @@ h3 {
     width: 7rem;
     border-radius: 1.5rem;
   }
+
 }

@@ -46,10 +46,16 @@
   };
 
   const updateDialogImage = (button) => {
-    const caption = button.dataset.screenshotCaption || "";
+    const thumbnailImage = button.querySelector("img");
+    const caption = button.closest("figure")?.querySelector("figcaption")?.textContent?.trim()
+      || button.dataset.screenshotCaption
+      || thumbnailImage?.alt
+      || "";
+    const usesFreeformLayout = thumbnailImage?.classList.contains("freeform-shot") || false;
 
+    dialog.classList.toggle("freeform", usesFreeformLayout);
     dialogImage.src = button.dataset.screenshotSrc;
-    dialogImage.alt = button.querySelector("img")?.alt || caption || "Expanded screenshot";
+    dialogImage.alt = caption || "Expanded screenshot";
     dialogCaption.textContent = caption;
   };
 

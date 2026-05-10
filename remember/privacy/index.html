@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Remember</title>
+  <meta name="description" content="Privacy policy for the Remember Android app.">
+  <link rel="stylesheet" href="../../assets/style.css?v=20260510-1">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+</head>
+<body class="theme-remember">
+  <main class="site-shell">
+    <nav class="nav page-nav" aria-label="Site">
+      <a class="pill" href="../../">Home</a>
+      <a class="pill primary" href="../../remember/">Remember</a>
+      <a class="pill" href="../../filepipe/">FilePipe</a>
+      <a class="pill" href="../../obtainx/">ObtainX</a>
+      <a class="pill" href="../../awwsome-toolkit/">AWWsome Toolkit</a>
+    </nav>
+    <article class="content-card">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: May 9, 2026 | for App: Remember</p>
+
+      <h2>Summary</h2>
+      <p>
+        Remember is designed so your notes and reminders stay on your device. The app does not require an account for normal use. The developer does not collect analytics, run ads, or send your data to any server not described in this policy.
+      </p>
+
+      <h2>Data stored on your device</h2>
+      <p>
+        Your content — notes, lists, checklists, file attachments, reminder schedules, tags, and settings — is stored locally in app-private storage on your device. Nothing is sent to the developer's servers.
+      </p>
+
+      <h2>Android automatic backup</h2>
+      <p>
+        Android automatically backs up most app data through Google's backup service (Google One Backup) and during device-to-device transfers, depending on your Android version and Google account settings. This means your notes, reminders, tags, and app settings may be included in your Android backup without any action on your part.
+      </p>
+      <p>
+        The following are <strong>excluded</strong> from Android's automatic backup: images attached to notes, other file attachments, and backup ZIP files you export manually.
+      </p>
+      <p>
+        Automatic backup is handled entirely by Android and Google; the developer does not control what Google does with that data. You can turn off Android's automatic backup at any time in Android Settings → Google → Backup.
+      </p>
+
+      <h2>Manual backup and import</h2>
+      <p>
+        You can export app data to a folder you choose, including cloud storage connected to your device. That data is handled by Android and the storage provider you select, not sent to a server run by the developer.
+      </p>
+      <p>
+        If you choose to import from Google Tasks, the app requests read-only OAuth access to your Google Tasks data and account email, solely to import the tasks you select. Your Google password is never seen or stored by the app. After sign-in, the OAuth token is managed by Google Play Services on your device; the app stores only the fact that a connection has been made. The app does not access Google Tasks in the background. You can disconnect the account in the app or revoke access from your Google Account settings at any time. Google's own privacy policy applies to data Google holds.
+      </p>
+
+      <h2>Permissions</h2>
+
+      <h3>Granted automatically at install</h3>
+      <p>These permissions are granted when you install the app. Android does not show a separate approval prompt for them:</p>
+      <ul class="compact-list">
+        <li><strong>Internet access</strong> — used for three purposes: checking for app updates, fetching the release changelog from GitHub, and the optional Google Tasks import. No other network connections are made.</li>
+        <li><strong>Receive boot completed</strong> — allows the app to restore your reminder notifications after the device restarts, so active reminders are not silently lost.</li>
+      </ul>
+
+      <h3>Requested in a system prompt</h3>
+      <p>Android shows a dialog before granting these:</p>
+      <ul class="compact-list">
+        <li><strong>Notifications</strong> — to show reminder alerts, an optional persistent reminder summary in the notification shade, and widget refresh signals.</li>
+        <li><strong>Battery optimization exemption</strong> — when you enable "Reliable Reminders," the app shows a system dialog asking whether to exempt Remember from battery optimization. Once granted, Android allows the app to run unrestricted in the background so reminder delivery is not deferred during Doze mode. This matters most on devices from manufacturers like Samsung or Xiaomi that aggressively restrict background apps.</li>
+        <li><strong>Install unknown apps</strong> (GitHub release only) — allows the app to install a downloaded APK update without leaving the app. Only present in the GitHub build; the Play Store build uses Google Play's update mechanism instead.</li>
+      </ul>
+
+      <h3>Exact alarm scheduling</h3>
+      <p>
+        How this works depends on where you installed the app from:
+      </p>
+      <ul class="compact-list">
+        <li><strong>GitHub / APK release</strong> — the app is granted exact alarm access automatically at install (<code>USE_EXACT_ALARM</code>). No action is required from you and this cannot be revoked.</li>
+        <li><strong>Google Play</strong> — exact alarm access (<code>SCHEDULE_EXACT_ALARM</code>) is user-grantable on Android 12 and above. Some OEMs grant it by default; others do not. If it is not already granted, enabling "Reliable Reminders" in Settings navigates you to the relevant Android settings screen. Full reliable reminder delivery on Play Store requires both exact alarm access and the battery optimization exemption above.</li>
+      </ul>
+      <p>
+        Reminders you mark as High importance are exempt from both of the above: they use Android's alarm clock API (<code>setAlarmClock</code>), which is always precise and always Doze-exempt regardless of which flavor you installed or what you have granted.
+      </p>
+
+      <h3>Optional: app lock</h3>
+      <p>
+        If you turn on app lock, Remember uses your device's existing unlock method — fingerprint, face, or device PIN — to protect access to the app. The developer never receives any of this; authentication is handled entirely by Android.
+      </p>
+      
+      <h2>Diagnostic log</h2>
+      <p>
+        The app maintains a local diagnostic log on your device. It records technical events — errors, crashes, permission states, notification channel settings, Android version, and device model. It never contains the content of your notes, reminder titles, or any personal data you have entered.
+      </p>
+      <p>
+        This log is never sent anywhere automatically. It is only shared if you choose to tap the bug report button in Settings and then explicitly share the file. The log is capped at 256 KB and older entries are trimmed automatically.
+      </p>
+
+      <h2>No analytics or tracking</h2>
+      <p>
+        The app does not include analytics, advertising, crash-reporting, or telemetry SDKs. The developer does not receive information about how you use the app.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        The app is not directed at children under 13, and the developer does not operate any service that collects personal information from children.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        This policy may be updated from time to time. The latest version will be published on this page.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions about Remember, use the <a href="https://github.com/bikram-agarwal/Remember/issues" target="_blank" rel="noopener">GitHub project</a> or the app store listing where you installed the app from.
+      </p>
+    </article>
+  </main>
+</body>
+</html>

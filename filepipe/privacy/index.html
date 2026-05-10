@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - FilePipe</title>
+  <meta name="description" content="Privacy policy for the FilePipe Android app.">
+  <link rel="stylesheet" href="../../assets/style.css?v=20260510-1">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+</head>
+<body class="theme-filepipe">
+  <main class="site-shell">
+    <nav class="nav page-nav" aria-label="Site">
+      <a class="pill" href="../../">Home</a>
+      <a class="pill" href="../../remember/">Remember</a>
+      <a class="pill primary" href="../../filepipe/">FilePipe</a>
+      <a class="pill" href="../../obtainx/">ObtainX</a>
+      <a class="pill" href="../../awwsome-toolkit/">AWWsome Toolkit</a>
+    </nav>
+    <article class="content-card">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: May 9, 2026 | for App: FilePipe</p>
+
+      <h2>Summary</h2>
+      <p>
+        FilePipe organizes files on your device using rules you define. The app does not require an account for normal use. The app does not send your files or file names to any server. The developer does not collect analytics, run ads, or send your data to any server not described in this policy.
+      </p>
+
+      <h2>Data stored on your device</h2>
+      <p>
+        Your rules, run history, and app settings are stored locally in app-private storage on your device. Run history includes the names and source/destination paths of files moved or copied; it is retained for 30 days by default and can be adjusted in Settings. Nothing is sent to the developer's servers.
+      </p>
+
+      <h2>Android automatic backup</h2>
+      <p>
+        Android automatically backs up most app data through Google's backup service (Google One Backup) and during device-to-device transfers, depending on your Android version and Google account settings. This means your rules, run history (including file names and paths), and app settings may be included in your Android backup without any action on your part.
+      </p>
+      <p>
+        The app does not exclude any data from Android's automatic backup.
+      </p>
+      <p>
+        Automatic backup is handled entirely by Android and Google; the developer does not control what Google does with that data. You can turn off Android's automatic backup at any time in Android Settings → Google → Backup.
+      </p>
+
+      <h2>Manual backup and import</h2>
+      <p>
+        You can export app data to a folder you choose, including cloud storage connected to your device. That data is handled by Android and the storage provider you select, not sent to a server run by the developer.
+      </p>
+      <p>
+        You can import rules from a previously exported file at any time.
+      </p>
+
+      <h2>Permissions</h2>
+
+      <h3>Storage access</h3>
+      <p>
+        FilePipe accesses only the folders you explicitly select. There are two modes:
+      </p>
+      <ul class="compact-list">
+        <li><strong>Selective access (default)</strong> — you grant access to specific folders through Android's system file picker. The app can only read and write within those folders.</li>
+        <li><strong>All files access (recommended)</strong> — you can grant broader filesystem access in Settings if you need to work with folders not reachable through the standard picker, such as the Downloads root or an SD card root. This uses Android's <code>MANAGE_EXTERNAL_STORAGE</code> permission and requires an additional confirmation in Android Settings.</li>
+      </ul>
+      <p>
+        In both modes, the app reads file names, sizes, and dates within the folders you have granted access to. It does not read file content.
+      </p>
+
+      <h3>Granted automatically at install</h3>
+      <p>These permissions are granted when you install the app. Android does not show a separate approval prompt for them:</p>
+      <ul class="compact-list">
+        <li><strong>Internet access</strong> — used for two purposes: checking for app updates and fetching the release changelog from GitHub. No other network connections are made.</li>
+        <li><strong>Receive boot completed</strong> — required by the scheduling system to reschedule your file organization rules after the device restarts, so active schedules are not silently lost.</li>
+        <li><strong>Foreground service</strong> — used during manual rule runs to keep the operation working reliably while you switch away from the app. An ongoing notification is shown while any operation is in progress.</li>
+      </ul>
+
+      <h3>Requested in a system prompt</h3>
+      <p>Android shows a dialog before granting these:</p>
+      <ul class="compact-list">
+        <li><strong>Notifications</strong> — to show progress during rule execution, a summary with file counts and an undo action after each scheduled run, and update availability alerts if you have those enabled.</li>
+        <li><strong>All Files Access</strong> — only if you choose to enable the optional all-files mode in Settings. Android will direct you to a dedicated confirmation screen for this.</li>
+      </ul>
+
+      <h3>GitHub / APK release only</h3>
+      <ul class="compact-list">
+        <li><strong>Install packages</strong> — allows the app to install a downloaded APK update without leaving the app. Only present in the GitHub build; the Play Store build uses Google Play's update mechanism instead.</li>
+      </ul>
+
+      <h2>No analytics or tracking</h2>
+      <p>
+        The app does not include analytics, advertising, crash-reporting, or telemetry SDKs. The developer does not receive information about how you use the app.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        The app is not directed at children under 13, and the developer does not operate any service that collects personal information from children.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        This policy may be updated from time to time. The latest version will be published on this page.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions about FilePipe, use the <a href="https://github.com/bikram-agarwal/FilePipe/issues" target="_blank" rel="noopener">GitHub project</a> or the app store listing where you installed the app from.
+      </p>
+    </article>
+  </main>
+</body>
+</html>
