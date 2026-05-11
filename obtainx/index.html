@@ -17,8 +17,8 @@
   <meta name="twitter:title" content="ObtainX">
   <meta name="twitter:description" content="App update management for Android with bulk import, organization, filtering, and smarter update workflows.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/obtainx/screenshots/1.apps.webp">
-  <link rel="stylesheet" href="../assets/style.css?v=20260510-1">
-  <script src="../assets/site.js?v=20260510-1" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=2-20260511">
+  <script src="../assets/site.js?v=2-20260511" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,15 +39,37 @@
 </head>
 <body class="theme-obtainx">
   <main class="site-shell">
-    <nav class="nav page-nav" aria-label="Site">
+    <nav class="nav page-nav desktop-site-nav" aria-label="Site">
       <a class="pill" href="../">Home</a>
       <a class="pill" href="../remember/">Remember</a>
       <a class="pill" href="../filepipe/">FilePipe</a>
       <span class="pill primary" aria-current="page">ObtainX</span>
       <a class="pill" href="../awwsome-toolkit/">AWWsome Toolkit</a>
     </nav>
+    <details class="mobile-site-menu">
+      <summary aria-label="Open site navigation">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <nav class="mobile-menu-links" aria-label="Site menu">
+          <a href="../">Home</a>
+          <a href="../remember/">Remember</a>
+          <a href="../filepipe/">FilePipe</a>
+          <span aria-current="page">ObtainX</span>
+          <a href="../awwsome-toolkit/">AWWsome Toolkit</a>
+        </nav>
+      </div>
+    </details>
     <section class="hero project-hero">
-      <div>
+      <div class="hero-media">
+        <img class="app-logo" src="logo.png" alt="ObtainX app logo">
+        <nav class="nav" aria-label="ObtainX links">
+          <a class="pill primary" href="https://github.com/bikram-agarwal/ObtainX/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">GitHub</a>
+          <a class="pill" href="privacy/">Privacy</a>
+          <a class="pill" href="terms/">Terms</a>
+        </nav>
+      </div>
+      <div class="hero-copy">
         <h1>ObtainX</h1>
         <div class="chip-row" aria-label="Platforms">
           <span class="meta-chip">Android</span>
@@ -61,14 +83,18 @@
             ObtainX is a fork of <a href="https://github.com/ImranR98/Obtainium" target="_blank" rel="noopener">Obtainium</a>, and began as a way to choose your own installer, so updates could show more details and keep Advanced Protection enabled. It then snowballed into a complete overhaul with Material 3 Expressive UI, bulk app import, clearer update states, folders, on-demand checks, and more.
           </p>
         </section>
-      </div>
-      <div class="hero-media">
-        <img class="app-logo" src="logo.png" alt="ObtainX app logo">
-        <nav class="nav" aria-label="ObtainX links">
-          <a class="pill primary" href="https://github.com/bikram-agarwal/ObtainX/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">GitHub</a>
-          <a class="pill" href="privacy/">Privacy</a>
-          <a class="pill" href="terms/">Terms</a>
-        </nav>
+        <a class="content-card featured-mention" href="https://www.youtube.com/watch?v=B59glf2bweo&t=468s" target="_blank" rel="noopener">
+          <span class="featured-mention-text">
+            <span>Featured by HowToMen</span>
+            <strong>Best Android Apps - May 2026!</strong>
+          </span>
+          <span class="featured-mention-logo" aria-hidden="true">
+            <svg viewBox="0 0 28 20" focusable="false">
+              <path d="M27.4 3.1c-.3-1.2-1.3-2.1-2.4-2.4C22.8.1 14 .1 14 .1S5.2.1 3 .7C1.9 1 .9 1.9.6 3.1 0 5.3 0 10 0 10s0 4.7.6 6.9c.3 1.2 1.3 2.1 2.4 2.4 2.2.6 11 .6 11 .6s8.8 0 11-.6c1.1-.3 2.1-1.2 2.4-2.4.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/>
+              <path d="M11.2 14.3V5.7L18.5 10l-7.3 4.3Z" fill="#fff"/>
+            </svg>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -91,8 +117,8 @@
       </article>
     </section>
 
-    <div style="text-align: right; margin-top: -0.75rem; margin-bottom: 2rem;">
-      <a class="pill" href="https://github.com/bikram-agarwal/ObtainX/blob/main/README.md" target="_blank" rel="noopener">… and more on GitHub</a>
+    <div class="read-more-row">
+      <a class="pill read-more-button" href="https://github.com/bikram-agarwal/ObtainX/blob/main/README.md" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">View full README<span aria-hidden="true">→</span></a>
     </div>
 
     <section class="screenshot-section" aria-labelledby="screenshots-title">
@@ -100,31 +126,31 @@
       <div class="screenshot-grid">
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/1.apps.webp" aria-labelledby="caption-obtainx-apps">
-            <img class="phone-shot" loading="lazy" src="screenshots/1.apps.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/1.apps.webp" alt="">
           </button>
           <figcaption id="caption-obtainx-apps">App list shows update status at a glance with source/category grouping and badges.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/2.view_opts.webp" aria-labelledby="caption-obtainx-view-options">
-            <img class="phone-shot" loading="lazy" src="screenshots/2.view_opts.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/2.view_opts.webp" alt="">
           </button>
           <figcaption id="caption-obtainx-view-options">View options adjust badges, sorting, grouping, and visibility.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/4.app.webp" aria-labelledby="caption-obtainx-details">
-            <img class="phone-shot" loading="lazy" src="screenshots/4.app.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/4.app.webp" alt="">
           </button>
           <figcaption id="caption-obtainx-details">App detail shows source, installed version, releases, and installer options.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/9.bulk_add.webp" aria-labelledby="caption-obtainx-bulk-add">
-            <img class="phone-shot" loading="lazy" src="screenshots/9.bulk_add.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/9.bulk_add.webp" alt="">
           </button>
           <figcaption id="caption-obtainx-bulk-add">Bulk add scans installed apps and finds them at sources of your choice.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/Settings.webp" aria-labelledby="caption-obtainx-settings">
-            <img class="phone-shot" loading="lazy" src="screenshots/Settings.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/Settings.webp" alt="">
           </button>
           <figcaption id="caption-obtainx-settings">Settings collect update checks, installers, backups, and app behavior.</figcaption>
         </figure>

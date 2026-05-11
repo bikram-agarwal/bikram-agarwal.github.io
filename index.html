@@ -18,7 +18,7 @@
   <meta name="twitter:description" content="Developer profile, Android apps, and tools by Bikram Agarwal.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/assets/me_600.webp">
   <meta name="google-site-verification" content="KuExVXCwT7IjYVNTncj-d7UI_K9DAABVQ8Z2EHH9un4" />
-  <link rel="stylesheet" href="assets/style.css?v=20260510-1">
+  <link rel="stylesheet" href="assets/style.css?v=2-20260511">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,9 +43,22 @@
 <body>
   <main class="site-shell">
     <section class="hero profile-hero">
-      <div>
+      <div class="hero-media">
+        <img class="avatar" src="assets/me_600.webp" alt="Bikram Agarwal">
+        <nav class="nav" aria-label="Profile links">
+          <a class="pill primary" href="https://github.com/bikram-agarwal" target="_blank" rel="noopener"><img class="pill-icon" src="assets/fav_github.ico" alt="" aria-hidden="true">GitHub profile</a>
+          <a class="pill" href="https://www.linkedin.com/in/bikramagarwal/" target="_blank" rel="noopener"><img class="pill-icon" src="assets/fav_linkedin.ico" alt="" aria-hidden="true">LinkedIn</a>
+          <a class="pill" href="https://play.google.com/store/apps/dev?id=5525405459681818856" target="_blank" rel="noopener"><img class="pill-icon" src="assets/fav_google-play.ico" alt="" aria-hidden="true">Google Play</a>
+        </nav>
+      </div>
+      <div class="hero-copy">
         <h1>Bikram Agarwal</h1>
-        <p class="profile-tagline">Crafting local-first Android apps with depth, clarity, and personality.</p>
+        <p class="profile-tagline">Crafting local-first apps with depth, clarity, and personality.</p>
+        <div class="chip-row" aria-label="Platforms">
+          <span class="meta-chip">Android</span>
+          <span class="meta-chip">Windows</span>
+          <span class="meta-chip">Web</span>
+        </div>
         <section class="content-card">
           <h2>How I Build</h2>
           <p>
@@ -53,37 +66,46 @@
           </p>
         </section>
       </div>
-      <div class="hero-media">
-        <img class="avatar" src="assets/me_600.webp" alt="Bikram Agarwal">
-        <nav class="nav" aria-label="Profile links">
-          <a class="pill primary" href="https://github.com/bikram-agarwal" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">GitHub profile</a>
-          <a class="pill" href="https://www.linkedin.com/in/bikramagarwal/" target="_blank" rel="noopener"><img class="pill-icon" src="https://www.linkedin.com/favicon.ico" alt="" aria-hidden="true">LinkedIn</a>
-          <a class="pill" href="https://play.google.com/store/apps/dev?id=5525405459681818856" target="_blank" rel="noopener"><img class="pill-icon" src="https://www.gstatic.com/android/market_images/web/favicon_v3.ico" alt="" aria-hidden="true">Google Play</a>
-        </nav>
-      </div>
     </section>
 
     <section class="projects-section" aria-labelledby="projects-title">
       <h2 id="projects-title">Projects</h2>
       <div class="grid">
         <a class="card" href="remember/">
-          <img class="card-logo" src="remember/logo.png" alt="" aria-hidden="true">
-          <h3>Remember</h3>
+          <div class="card-header">
+            <img class="card-logo" src="remember/logo.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="card-title-group">
+              <h3>Remember</h3>
+            </div>
+          </div>
           <p>Notes, lists, and reminders for Android, built around persistent notifications that stay visible until they are truly done.</p>
         </a>
         <a class="card" href="filepipe/">
-          <img class="card-logo" src="filepipe/logo.png" alt="" aria-hidden="true">
-          <h3>FilePipe</h3>
+          <div class="card-header">
+            <img class="card-logo" src="filepipe/logo.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="card-title-group">
+              <h3>FilePipe</h3>
+            </div>
+          </div>
           <p>Turn messy Android storage into a rule-driven library: choose sources, filters, destinations, and schedules, then let the app manage it for you.</p>
         </a>
         <a class="card" href="obtainx/">
-          <img class="card-logo" src="obtainx/logo.png" alt="" aria-hidden="true">
-          <h3>ObtainX</h3>
+          <div class="card-header">
+            <img class="card-logo" src="obtainx/logo.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="card-title-group">
+              <h3>ObtainX</h3>
+              <span class="card-badge">Featured by HowToMen</span>
+            </div>
+          </div>
           <p>Get app updates straight from the source. Track releases from GitHub, F-Droid, APKMirror, APKPure etc., with full control over how updates are discovered, and installed.</p>
         </a>
         <a class="card" href="awwsome-toolkit/">
-          <img class="card-logo" src="awwsome-toolkit/logo.png" alt="" aria-hidden="true">
-          <h3>AWWsome Toolkit</h3>
+          <div class="card-header">
+            <img class="card-logo" src="awwsome-toolkit/logo.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="card-title-group">
+              <h3>AWWsome Toolkit</h3>
+            </div>
+          </div>
           <p>A collection of small, platform-specific tools and guides for Android, Windows, and the web — built for tasks that benefit from repeatable automation.</p>
         </a>
       </div>

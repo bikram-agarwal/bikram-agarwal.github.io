@@ -17,7 +17,8 @@
   <meta name="twitter:title" content="Remember">
   <meta name="twitter:description" content="Notes, lists, and reminders for Android, built around persistent notifications that stay visible until they are truly done.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/remember/logo.png">
-  <link rel="stylesheet" href="../assets/style.css?v=20260510-1">
+  <link rel="stylesheet" href="../assets/style.css?v=2-20260511">
+  <script src="../assets/site.js?v=2-20260511" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,15 +44,38 @@
     <span aria-hidden="true">Under construction</span>
   </div>
   <main class="site-shell">
-    <nav class="nav page-nav" aria-label="Site">
+    <nav class="nav page-nav desktop-site-nav" aria-label="Site">
       <a class="pill" href="../">Home</a>
       <span class="pill primary" aria-current="page">Remember</span>
       <a class="pill" href="../filepipe/">FilePipe</a>
       <a class="pill" href="../obtainx/">ObtainX</a>
       <a class="pill" href="../awwsome-toolkit/">AWWsome Toolkit</a>
     </nav>
+    <details class="mobile-site-menu">
+      <summary aria-label="Open site navigation">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <nav class="mobile-menu-links" aria-label="Site menu">
+          <a href="../">Home</a>
+          <span aria-current="page">Remember</span>
+          <a href="../filepipe/">FilePipe</a>
+          <a href="../obtainx/">ObtainX</a>
+          <a href="../awwsome-toolkit/">AWWsome Toolkit</a>
+        </nav>
+      </div>
+    </details>
     <section class="hero project-hero">
-      <div>
+      <div class="hero-media">
+        <img class="app-logo" src="logo.png" alt="Remember app logo">
+        <nav class="nav" aria-label="Remember links">
+          <a class="pill primary" href="https://play.google.com/store/apps/details?id=dev.bikram.remember" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_google-play.ico" alt="" aria-hidden="true">Google Play</a>
+          <a class="pill secondary-strong" href="https://github.com/bikram-agarwal/Remember/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">GitHub</a>
+          <a class="pill" href="privacy/">Privacy</a>
+          <a class="pill" href="terms/">Terms</a>
+        </nav>
+      </div>
+      <div class="hero-copy">
         <h1>Remember</h1>
         <div class="chip-row" aria-label="Platforms">
           <span class="meta-chip">Android</span>
@@ -65,15 +89,6 @@
             You've probably swiped away a reminder notification by mistake and then lost track of it. Remember protects your reminders from accidental dismissal — the notification resurfaces immediately, and stays visible until you say it's done.
           </p>
         </section>
-      </div>
-      <div class="hero-media">
-        <img class="app-logo" src="logo.png" alt="Remember app logo">
-        <nav class="nav" aria-label="Remember links">
-          <a class="pill primary" href="https://play.google.com/store/apps/details?id=dev.bikram.remember" target="_blank" rel="noopener"><img class="pill-icon" src="https://www.gstatic.com/android/market_images/web/favicon_v3.ico" alt="" aria-hidden="true">Google Play</a>
-          <a class="pill" href="https://github.com/bikram-agarwal/Remember/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">GitHub</a>
-          <a class="pill" href="privacy/">Privacy</a>
-          <a class="pill" href="terms/">Terms</a>
-        </nav>
       </div>
     </section>
 
@@ -96,8 +111,8 @@
       </article>
     </section>
 
-    <div style="text-align: right; margin-top: -0.75rem; margin-bottom: 2rem;">
-      <a class="pill" href="https://github.com/bikram-agarwal/Remember/blob/main/README.md" target="_blank" rel="noopener">… and more on GitHub</a>
+    <div class="read-more-row">
+      <a class="pill read-more-button" href="https://github.com/bikram-agarwal/Remember/blob/main/README.md" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">View full README<span aria-hidden="true">→</span></a>
     </div>
 
     <footer class="site-footer">

@@ -17,8 +17,8 @@
   <meta name="twitter:title" content="AWWsome Toolkit">
   <meta name="twitter:description" content="Android, Windows, and web utilities for tinkering, maintenance, and automation workflows.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/awwsome-toolkit/logo.png">
-  <link rel="stylesheet" href="../assets/style.css?v=20260510-1">
-  <script src="../assets/site.js?v=20260510-1" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=2-20260511">
+  <script src="../assets/site.js?v=2-20260511" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,15 +37,38 @@
 </head>
 <body class="theme-awwsome">
   <main class="site-shell">
-    <nav class="nav page-nav" aria-label="Site">
+    <nav class="nav page-nav desktop-site-nav" aria-label="Site">
       <a class="pill" href="../">Home</a>
       <a class="pill" href="../remember/">Remember</a>
       <a class="pill" href="../filepipe/">FilePipe</a>
       <a class="pill" href="../obtainx/">ObtainX</a>
       <span class="pill primary" aria-current="page">AWWsome Toolkit</span>
     </nav>
+    <details class="mobile-site-menu">
+      <summary aria-label="Open site navigation">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <nav class="mobile-menu-links" aria-label="Site menu">
+          <a href="../">Home</a>
+          <a href="../remember/">Remember</a>
+          <a href="../filepipe/">FilePipe</a>
+          <a href="../obtainx/">ObtainX</a>
+          <span aria-current="page">AWWsome Toolkit</span>
+        </nav>
+      </div>
+    </details>
     <section class="hero project-hero">
-      <div>
+      <div class="hero-media">
+        <img class="app-logo" src="logo.png" alt="AWWsome Toolkit logo">
+        <nav class="nav" aria-label="AWWsome Toolkit links">
+          <a class="pill primary" href="https://github.com/bikram-agarwal/AWWsome-Toolkit" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">Tools on GitHub</a>
+          <a class="pill secondary-strong" href="https://bikram-agarwal.github.io/AWWsome-Toolkit/" target="_blank" rel="noopener">GitHub Star Feeds</a>
+          <a class="pill" href="privacy/">Privacy</a>
+          <a class="pill" href="terms/">Terms</a>
+        </nav>
+      </div>
+      <div class="hero-copy">
         <h1>AWWsome Toolkit</h1>
         <div class="chip-row" aria-label="Platforms">
           <span class="meta-chip">Android</span>
@@ -61,15 +84,6 @@
             I built these tools to keep my own system tidy. Windows kept rearranging my Start Menu every time I installed or updated something, and the registry tweaks I found online lived in scattered notes until I scripted them for myself. Eventually I realized I was building a small library of fixes for everyday annoyances — and that others might need them too.
           </p>
         </section>
-      </div>
-      <div class="hero-media">
-        <img class="app-logo" src="logo.png" alt="AWWsome Toolkit logo">
-        <nav class="nav" aria-label="AWWsome Toolkit links">
-          <a class="pill primary" href="https://github.com/bikram-agarwal/AWWsome-Toolkit" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">Source on GitHub</a>
-          <a class="pill" href="https://bikram-agarwal.github.io/AWWsome-Toolkit/" target="_blank" rel="noopener">GitHub Star Feeds</a>
-          <a class="pill" href="privacy/">Privacy</a>
-          <a class="pill" href="terms/">Terms</a>
-        </nav>
       </div>
     </section>
 
@@ -92,8 +106,8 @@
       </article>
     </section>
 
-    <div style="text-align: right; margin-top: -0.75rem; margin-bottom: 2rem;">
-      <a class="pill" href="https://github.com/bikram-agarwal/AWWsome-Toolkit/blob/main/README.md" target="_blank" rel="noopener">… and more on GitHub</a>
+    <div class="read-more-row">
+      <a class="pill read-more-button" href="https://github.com/bikram-agarwal/AWWsome-Toolkit/blob/main/README.md" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">View full README<span aria-hidden="true">→</span></a>
     </div>
 
     <section class="screenshot-section" aria-labelledby="screenshots-title">
@@ -101,19 +115,19 @@
       <div class="screenshot-grid freeform">
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/calendar_task_sync.webp" aria-labelledby="caption-calendar-task-sync">
-            <img class="freeform-shot" loading="lazy" src="screenshots/calendar_task_sync.webp" alt="">
+            <img class="freeform-shot" loading="lazy" decoding="async" src="screenshots/calendar_task_sync.webp" alt="">
           </button>
           <figcaption id="caption-calendar-task-sync">Calendar Task Sync tool: Showing how the tool can be used to sync calendar events with a Google Tasks Backlog.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/start_menu.webp" aria-labelledby="caption-start-menu">
-            <img class="freeform-shot" loading="lazy" src="screenshots/start_menu.webp" alt="">
+            <img class="freeform-shot" loading="lazy" decoding="async" src="screenshots/start_menu.webp" alt="">
           </button>
           <figcaption id="caption-start-menu">Start Menu Manager tool: Enforce mode. Showing how the tool can be used to enforce a saved Start Menu layout.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/folder_icon.webp" aria-labelledby="caption-folder-icon">
-            <img class="freeform-shot" loading="lazy" src="screenshots/folder_icon.webp" alt="">
+            <img class="freeform-shot" loading="lazy" decoding="async" src="screenshots/folder_icon.webp" alt="">
           </button>
           <figcaption id="caption-folder-icon">Folder Icon Setter tool showing how to select and apply icons to folders.</figcaption>
         </figure>

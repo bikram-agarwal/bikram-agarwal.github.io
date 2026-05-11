@@ -17,8 +17,8 @@
   <meta name="twitter:title" content="FilePipe">
   <meta name="twitter:description" content="Rule-based file automation for Android, with preview, history, undo, and scheduled cleanup.">
   <meta name="twitter:image" content="https://bikram-agarwal.github.io/filepipe/screenshots/1_rules.webp">
-  <link rel="stylesheet" href="../assets/style.css?v=20260510-1">
-  <script src="../assets/site.js?v=20260510-1" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=2-20260511">
+  <script src="../assets/site.js?v=2-20260511" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,15 +39,38 @@
 </head>
 <body class="theme-filepipe">
   <main class="site-shell">
-    <nav class="nav page-nav" aria-label="Site">
+    <nav class="nav page-nav desktop-site-nav" aria-label="Site">
       <a class="pill" href="../">Home</a>
       <a class="pill" href="../remember/">Remember</a>
       <span class="pill primary" aria-current="page">FilePipe</span>
       <a class="pill" href="../obtainx/">ObtainX</a>
       <a class="pill" href="../awwsome-toolkit/">AWWsome Toolkit</a>
     </nav>
+    <details class="mobile-site-menu">
+      <summary aria-label="Open site navigation">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <nav class="mobile-menu-links" aria-label="Site menu">
+          <a href="../">Home</a>
+          <a href="../remember/">Remember</a>
+          <span aria-current="page">FilePipe</span>
+          <a href="../obtainx/">ObtainX</a>
+          <a href="../awwsome-toolkit/">AWWsome Toolkit</a>
+        </nav>
+      </div>
+    </details>
     <section class="hero project-hero">
-      <div>
+      <div class="hero-media">
+        <img class="app-logo" src="logo.png" alt="FilePipe app logo">
+        <nav class="nav" aria-label="FilePipe links">
+          <a class="pill primary" href="https://play.google.com/store/apps/details?id=dev.bikram.filepipe" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_google-play.ico" alt="" aria-hidden="true">Google Play</a>
+          <a class="pill secondary-strong" href="https://github.com/bikram-agarwal/FilePipe/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">GitHub</a>
+          <a class="pill" href="privacy/">Privacy</a>
+          <a class="pill" href="terms/">Terms</a>
+        </nav>
+      </div>
+      <div class="hero-copy">
         <h1>FilePipe</h1>
         <div class="chip-row" aria-label="Platforms">
           <span class="meta-chip">Android</span>
@@ -61,15 +84,6 @@
             Different apps save files in separate app folders, and browser downloads dump everything — zips, PDFs, APKs — into one cluttered Download folder. I built FilePipe to automatically gather scattered media into one place and sort downloads into organized, type-specific folders.
           </p>
         </section>
-      </div>
-      <div class="hero-media">
-        <img class="app-logo" src="logo.png" alt="FilePipe app logo">
-        <nav class="nav" aria-label="FilePipe links">
-          <a class="pill primary" href="https://play.google.com/store/apps/details?id=dev.bikram.filepipe" target="_blank" rel="noopener"><img class="pill-icon" src="https://www.gstatic.com/android/market_images/web/favicon_v3.ico" alt="" aria-hidden="true">Google Play</a>
-          <a class="pill" href="https://github.com/bikram-agarwal/FilePipe/releases/latest" target="_blank" rel="noopener"><img class="pill-icon" src="https://github.com/favicon.ico" alt="" aria-hidden="true">GitHub</a>
-          <a class="pill" href="privacy/">Privacy</a>
-          <a class="pill" href="terms/">Terms</a>
-        </nav>
       </div>
     </section>
 
@@ -92,8 +106,8 @@
       </article>
     </section>
 
-    <div style="text-align: right; margin-top: -0.75rem; margin-bottom: 2rem;">
-      <a class="pill" href="https://github.com/bikram-agarwal/FilePipe/blob/main/README.md" target="_blank" rel="noopener">… and more on GitHub</a>
+    <div class="read-more-row">
+      <a class="pill read-more-button" href="https://github.com/bikram-agarwal/FilePipe/blob/main/README.md" target="_blank" rel="noopener"><img class="pill-icon" src="../assets/fav_github.ico" alt="" aria-hidden="true">View full README<span aria-hidden="true">→</span></a>
     </div>
 
     <section class="screenshot-section" aria-labelledby="screenshots-title">
@@ -101,31 +115,31 @@
       <div class="screenshot-grid">
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/1_rules.webp" aria-labelledby="caption-filepipe-rules">
-            <img class="phone-shot" loading="lazy" src="screenshots/1_rules.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/1_rules.webp" alt="">
           </button>
           <figcaption id="caption-filepipe-rules">Rule cards show source folders, active filters, schedule, and run controls.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/2_templates.webp" aria-labelledby="caption-filepipe-templates">
-            <img class="phone-shot" loading="lazy" src="screenshots/2_templates.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/2_templates.webp" alt="">
           </button>
           <figcaption id="caption-filepipe-templates">Templates let you start with a common scenario and adjust from there.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/3_edit.webp" aria-labelledby="caption-filepipe-editor">
-            <img class="phone-shot" loading="lazy" src="screenshots/3_edit.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/3_edit.webp" alt="">
           </button>
           <figcaption id="caption-filepipe-editor">The rule editor sets source folders, filters, destination, and more in one screen.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/7_history.webp" aria-labelledby="caption-filepipe-history">
-            <img class="phone-shot" loading="lazy" src="screenshots/7_history.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/7_history.webp" alt="">
           </button>
           <figcaption id="caption-filepipe-history">Run history logs moved/copied files and keeps undo close by.</figcaption>
         </figure>
         <figure class="screenshot-card">
           <button class="screenshot-button" type="button" data-screenshot-src="screenshots/8_settings.webp" aria-labelledby="caption-filepipe-settings">
-            <img class="phone-shot" loading="lazy" src="screenshots/8_settings.webp" alt="">
+            <img class="phone-shot" loading="lazy" decoding="async" src="screenshots/8_settings.webp" alt="">
           </button>
           <figcaption id="caption-filepipe-settings">A powerful theme engine with gradients and blur, giving you full control over the look.</figcaption>
         </figure>
