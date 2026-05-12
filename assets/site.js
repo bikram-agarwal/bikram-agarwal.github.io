@@ -43,11 +43,55 @@
 })();
 
 (() => {
-  const screenshotButtons = Array.from(document.querySelectorAll("[data-screenshot-src]"));
+  const lazyImages = Array.from(
+    document.querySelectorAll(".projects-section .card-logo, .archive-mosaic img, .screenshot-button img")
+  );
+
+  lazyImages.forEach((image) => {
+    image.setAttribute("loading", "lazy");
+    image.setAttribute("decoding", "async");
+  });
+})();
+
+(() => {
+  const screenshotButtons = Array.from(document.querySelectorAll(".screenshot-button"));
 
   if (!screenshotButtons.length) {
     return;
   }
+
+  const getScreenshotLabel = (button) => {
+    const thumbnailImage = button.querySelector("img");
+    return thumbnailImage?.getAttribute("alt")?.trim()
+      || button.dataset.screenshotCaption?.trim()
+      || "";
+  };
+
+  const getScreenshotSrc = (button) => {
+    const thumbnailImage = button.querySelector("img");
+    return button.dataset.screenshotSrc
+      || thumbnailImage?.getAttribute("src")
+      || "";
+  };
+
+  screenshotButtons.forEach((button) => {
+    button.removeAttribute("aria-labelledby");
+
+    const caption = getScreenshotLabel(button);
+    const figure = button.closest("figure");
+    const shouldShowInlineCaption = !button.closest(".compact-media-section");
+    let figcaption = figure?.querySelector("figcaption");
+
+    if (caption && figure && shouldShowInlineCaption && !figcaption) {
+      figcaption = document.createElement("figcaption");
+      figcaption.setAttribute("aria-hidden", "true");
+      figure.append(figcaption);
+    }
+
+    if (caption && shouldShowInlineCaption && figcaption) {
+      figcaption.textContent = caption;
+    }
+  });
 
   const dialog = document.createElement("dialog");
   dialog.className = "image-dialog";
@@ -57,14 +101,24 @@
     <div class="image-dialog-inner">
       <img class="dialog-image" alt="">
       <p class="dialog-caption"></p>
+      <a class="pill primary dialog-action" target="_blank" rel="noopener noreferrer" hidden></a>
     </div>
   `;
   document.body.append(dialog);
 
   const dialogImage = dialog.querySelector(".dialog-image");
   const dialogCaption = dialog.querySelector(".dialog-caption");
+  const dialogAction = dialog.querySelector(".dialog-action");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const inlineScreenshotLayout = window.matchMedia("(max-width: 42rem)");
+  const siteScript = document.querySelector("script[src*='assets/site.js']");
+  const assetsBaseUrl = siteScript ? new URL(".", siteScript.src) : new URL("/assets/", window.location.href);
+
+  dialogAction.innerHTML = `
+    <img class="pill-icon" src="${new URL("fav_google-play.ico", assetsBaseUrl).href}" alt="" aria-hidden="true">
+    <span></span>
+  `;
+  const dialogActionText = dialogAction.querySelector("span");
 
   let activeButton = null;
   let activeThumbnail = null;
@@ -72,6 +126,17 @@
   let lastInputWasKeyboard = false;
   let restoreFocusOnClose = false;
   let screenshotSwapTimer = null;
+
+  const syncDialogWidth = () => {
+    if (!dialog.open) {
+      return;
+    }
+
+    const imageWidth = dialogImage.getBoundingClientRect().width;
+    if (imageWidth > 0) {
+      dialog.style.setProperty("--dialog-media-width", `${Math.ceil(imageWidth)}px`);
+    }
+  };
 
   const withTransition = (updatePage) => {
     if (!document.startViewTransition || reducedMotion.matches) {
@@ -90,22 +155,42 @@
     dialogImage.style.viewTransitionName = "";
   };
 
-  const updateDialogImage = (button) => {
-    const thumbnailImage = button.querySelector("img");
-    const caption = button.closest("figure")?.querySelector("figcaption")?.textContent?.trim()
-      || button.dataset.screenshotCaption
-      || thumbnailImage?.alt
-      || "";
-    const usesFreeformLayout = thumbnailImage?.classList.contains("freeform-shot") || false;
+  const updateDialogAction = (button) => {
+    const actionUrl = button.dataset.dialogActionUrl || "";
 
-    dialog.classList.toggle("freeform", usesFreeformLayout);
-    dialogImage.src = button.dataset.screenshotSrc;
+    if (!actionUrl) {
+      dialogAction.hidden = true;
+      dialogAction.removeAttribute("href");
+      return;
+    }
+
+    dialogAction.href = actionUrl;
+    dialogActionText.textContent = button.dataset.dialogActionLabel
+      || "See in Play Store";
+    dialogAction.hidden = false;
+  };
+
+  const updateDialogImage = (button) => {
+    const caption = getScreenshotLabel(button)
+      || button.closest("figure")?.querySelector("figcaption")?.textContent?.trim()
+      || "";
+
+    dialog.style.removeProperty("--dialog-media-width");
+    dialogImage.src = getScreenshotSrc(button);
     dialogImage.alt = caption || "Expanded screenshot";
     dialogCaption.textContent = caption;
+    updateDialogAction(button);
+
+    if (dialogImage.complete) {
+      window.requestAnimationFrame(syncDialogWidth);
+    }
   };
 
   const openScreenshot = (button) => {
     if (inlineScreenshotLayout.matches) {
+      if (button.dataset.dialogActionUrl) {
+        window.open(button.dataset.dialogActionUrl, "_blank", "noopener");
+      }
       button.blur();
       return;
     }
@@ -128,6 +213,7 @@
       }
 
       dialog.showModal();
+      syncDialogWidth();
     }).then(() => dialog.focus());
   };
 
@@ -183,6 +269,7 @@
       }
 
       dialog.close();
+      dialog.style.removeProperty("--dialog-media-width");
     }).then(() => {
       clearTransitionNames();
       if (shouldRestoreFocus) {
@@ -218,6 +305,14 @@
   });
   window.addEventListener("pointerdown", () => {
     lastInputWasKeyboard = false;
+  });
+
+  dialogImage.addEventListener("load", () => {
+    window.requestAnimationFrame(syncDialogWidth);
+  });
+
+  window.addEventListener("resize", () => {
+    window.requestAnimationFrame(syncDialogWidth);
   });
 
   screenshotButtons.forEach((button) => {

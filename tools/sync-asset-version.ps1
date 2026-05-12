@@ -10,7 +10,11 @@ $versionFile = Join-Path $repoRoot "assets\asset-version.txt"
 if (-not $Version) {
   $Version = (Get-Content -LiteralPath $versionFile -Raw).Trim()
 } else {
-  Set-Content -LiteralPath $versionFile -Value $Version -NoNewline
+  [System.IO.File]::WriteAllText(
+    $versionFile,
+    $Version,
+    [System.Text.UTF8Encoding]::new($false)
+  )
 }
 
 if (-not $Version) {
@@ -40,7 +44,15 @@ foreach ($target in $targets) {
   )
 
   if ($updated -ne $original) {
-    Set-Content -LiteralPath $target.FullName -Value $updated -NoNewline
-    Write-Host "Updated $($target.FullName)"
+    try {
+      [System.IO.File]::WriteAllText(
+        $target.FullName,
+        $updated,
+        [System.Text.UTF8Encoding]::new($false)
+      )
+      Write-Host "Updated $($target.FullName)"
+    } catch {
+      Write-Warning "Skipped $($target.FullName): $($_.Exception.Message)"
+    }
   }
 }
