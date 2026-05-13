@@ -43,9 +43,15 @@
 })();
 
 (() => {
-  const lazyImages = Array.from(
-    document.querySelectorAll(".projects-section .card-logo, .archive-mosaic img, .screenshot-button img")
-  );
+  const lazyImageSelectors = [
+    ".projects-section .card-logo",
+    ".archive-mosaic img",
+    ".showcase-heading img",
+    ".showcase-card > button img",
+    ".showcase-media-strip > button img",
+    ".screenshot-button img",
+  ];
+  const lazyImages = Array.from(document.querySelectorAll(lazyImageSelectors.join(", ")));
 
   lazyImages.forEach((image) => {
     image.setAttribute("loading", "lazy");
@@ -54,13 +60,30 @@
 })();
 
 (() => {
-  const screenshotButtons = Array.from(document.querySelectorAll(".screenshot-button"));
+  const screenshotButtonSelectors = [
+    ".showcase-card > button",
+    ".showcase-media-strip > button",
+    ".screenshot-button",
+  ];
+  const screenshotButtons = Array.from(document.querySelectorAll(screenshotButtonSelectors.join(", ")));
 
   if (!screenshotButtons.length) {
     return;
   }
 
   const getScreenshotLabel = (button) => {
+    const showcaseCard = button.closest(".showcase-card");
+    const showcaseTagline = showcaseCard?.querySelector(".showcase-tagline");
+    const showcaseBody = showcaseTagline?.nextElementSibling;
+    const showcaseText = [
+      showcaseTagline?.textContent?.trim(),
+      showcaseBody?.matches("p") ? showcaseBody.textContent.trim() : "",
+    ].filter(Boolean).join(" ");
+
+    if (showcaseText) {
+      return showcaseText;
+    }
+
     const thumbnailImage = button.querySelector("img");
     return thumbnailImage?.getAttribute("alt")?.trim()
       || button.dataset.screenshotCaption?.trim()
@@ -78,9 +101,18 @@
     button.removeAttribute("aria-labelledby");
 
     const caption = getScreenshotLabel(button);
+    const thumbnailImage = button.querySelector("img");
     const figure = button.closest("figure");
     const shouldShowInlineCaption = !button.closest(".compact-media-section");
     let figcaption = figure?.querySelector("figcaption");
+
+    if (caption) {
+      button.setAttribute("aria-label", caption);
+
+      if (thumbnailImage && !thumbnailImage.getAttribute("alt")?.trim()) {
+        thumbnailImage.setAttribute("alt", caption);
+      }
+    }
 
     if (caption && figure && shouldShowInlineCaption && !figcaption) {
       figcaption = document.createElement("figcaption");
@@ -155,8 +187,14 @@
     dialogImage.style.viewTransitionName = "";
   };
 
+  const getDialogActionUrl = (button) => {
+    return button.dataset.dialogActionUrl
+      || button.closest(".showcase-card")?.querySelector(".showcase-action[href]")?.getAttribute("href")
+      || "";
+  };
+
   const updateDialogAction = (button) => {
-    const actionUrl = button.dataset.dialogActionUrl || "";
+    const actionUrl = getDialogActionUrl(button);
 
     if (!actionUrl) {
       dialogAction.hidden = true;
@@ -188,8 +226,10 @@
 
   const openScreenshot = (button) => {
     if (inlineScreenshotLayout.matches) {
-      if (button.dataset.dialogActionUrl) {
-        window.open(button.dataset.dialogActionUrl, "_blank", "noopener");
+      const actionUrl = getDialogActionUrl(button);
+
+      if (actionUrl) {
+        window.open(actionUrl, "_blank", "noopener");
       }
       button.blur();
       return;
