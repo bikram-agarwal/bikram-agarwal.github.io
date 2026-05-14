@@ -37,7 +37,7 @@
     </details>
     <article class="content-card">
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: May 9, 2026 | for App: Remember</p>
+      <p class="meta">Last updated: May 14, 2026 | for App: Remember</p>
 
       <h2>Summary</h2>
       <p>
@@ -64,8 +64,57 @@
       <p>
         You can export app data to a folder you choose, including cloud storage connected to your device. That data is handled by Android and the storage provider you select, not sent to a server run by the developer.
       </p>
+
+      <h2>Google user data and Google Tasks import</h2>
       <p>
-        If you choose to import from Google Tasks, the app requests read-only OAuth access to your Google Tasks data and account email, solely to import the tasks you select. Your Google password is never seen or stored by the app. After sign-in, the OAuth token is managed by Google Play Services on your device; the app stores only the fact that a connection has been made. The app does not access Google Tasks in the background. You can disconnect the account in the app or revoke access from your Google Account settings at any time. Google's own privacy policy applies to data Google holds.
+        This section describes Remember's optional Google Tasks import. Google access is used only when you choose to connect Google Tasks.
+      </p>
+
+      <h3>Data Accessed</h3>
+      <p>
+        When you choose <strong>Connect Google</strong>, Remember asks Google for these OAuth permissions:
+      </p>
+      <ul class="compact-list">
+        <li><strong>Google Tasks read-only access</strong> (<code>https://www.googleapis.com/auth/tasks.readonly</code>) - used to read your Google Tasks lists and tasks.</li>
+        <li><strong>Email address</strong> (<code>https://www.googleapis.com/auth/userinfo.email</code>) - used to identify the Google account you selected and show the connected account in the app.</li>
+      </ul>
+      <p>
+        With that access, Remember reads only the Google Tasks data needed for the import screen: task list IDs and titles, task IDs, task titles, notes or descriptions, due dates, completed status and completion timestamps, parent or subtask relationships, ordering, and hidden or deleted status. Remember does not request access to Gmail, Google Drive, Google Calendar, Google Contacts, Google Photos, or any other Google service. Remember never requests permission to create, edit, or delete anything in Google Tasks.
+      </p>
+
+      <h3>Data Usage</h3>
+      <p>
+        Google Tasks data is used only to show your task lists in the import screen, let you search, filter, and select tasks, and create or update local Remember notes and lists from the tasks you choose to import. Task titles become note titles or checklist text, task notes become note bodies, due dates become Remember reminders, completed status becomes Remember's done state, and task list titles may become tags. Remember's usage of information received from Google APIs will adhere to <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.
+      </p>
+      <p>
+        Remember does not write changes back to Google Tasks. The app does not monitor Google Tasks in the background, sync continuously, or access your Google Tasks unless you open the import flow and connect, refresh, or import.
+      </p>
+
+      <h3>Data Sharing</h3>
+      <p>
+        The developer does not sell Google user data, share it with advertisers, or send it to analytics, telemetry, crash-reporting, or developer-operated servers. Remember makes network calls only to Google services needed for the import flow: Google Identity Services for authorization, the Google Tasks API to read task lists and tasks, Google's userinfo endpoint to read the selected account email, and Google's token revocation endpoint if disconnect requires token revocation.
+      </p>
+      <p>
+        If you export a Remember backup to a folder you choose, including a cloud provider such as Google Drive, the exported notes in that backup are handled by Android and the storage provider you selected. Android automatic backup may also include local Remember data depending on your device and Google account settings. Those backups are controlled by Android and Google, not by the developer.
+      </p>
+
+      <h3>Data Storage &amp; Protection</h3>
+      <p>
+        Your Google password is never seen or stored by Remember. OAuth access tokens are obtained through Google Play Services / Google Identity Services and kept only in app memory while the import flow needs them; Remember does not store OAuth access tokens in its database or preferences.
+      </p>
+      <p>
+        Remember stores imported tasks as local notes, lists, reminders, tags, and completion state in its on-device Room database. It also stores the last connected account email and a small mapping of Google task IDs to Remember note IDs in app-private Android DataStore so it can show the connected account and avoid duplicate imports. This local app data is protected by Android's app sandbox. If you enable app lock, access to the app UI is additionally protected by your device's existing unlock method.
+      </p>
+
+      <h3>Data Retention &amp; Deletion</h3>
+      <p>
+        Google Tasks data loaded for preview is retained only in the active import screen session unless you import it. Imported Google Tasks data stays in Remember until you delete it. Deleting a note or list moves it to Trash; you can delete it forever immediately or empty Trash manually. Trashed notes are automatically deleted after 30 days.
+      </p>
+      <p>
+        You can disconnect Google Tasks inside the import screen. Disconnect revokes or clears the Google authorization where possible and removes the locally stored connected account email and import mapping for that source. Disconnecting does not delete notes or lists you already imported; delete those inside Remember if you want to remove the imported content.
+      </p>
+      <p>
+        You can also revoke Remember's Google access from your Google Account settings at any time. To remove local data, delete the imported notes or lists, empty Trash or delete forever, clear the app's storage, or uninstall the app. To remove data from Android automatic backup, manage or delete your Android backup from your device or Google account settings. The developer does not keep a server-side copy of your Google user data, so there is no server-side Google data for the developer to delete unless you separately choose to send information in a support request.
       </p>
 
       <h2>Permissions</h2>
@@ -127,7 +176,7 @@
 
       <h2>Contact</h2>
       <p>
-        For privacy questions about Remember, use the <a href="https://github.com/bikram-agarwal/Remember/issues" target="_blank" rel="noopener">GitHub project</a> or the app store listing where you installed the app from.
+        For privacy questions about Remember, including deletion requests for information you voluntarily sent in a support request, use the <a href="https://github.com/bikram-agarwal/Remember/issues" target="_blank" rel="noopener">GitHub project</a> or the app store listing where you installed the app from.
       </p>
     </article>
   </main>
