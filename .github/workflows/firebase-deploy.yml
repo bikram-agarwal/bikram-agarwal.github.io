@@ -9,6 +9,18 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - name: Rewrite sitemap for Firebase host
+        env:
+          FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
+        run: |
+          if [ -z "$FIREBASE_SITE_URL" ]; then
+            echo "Set the FIREBASE_SITE_URL repository variable to your custom domain, for example https://example.com"
+            exit 1
+          fi
+
+          FIREBASE_SITE_URL="${FIREBASE_SITE_URL%/}"
+          perl -0pi -e 's#https://bikram-agarwal\.github\.io#$ENV{FIREBASE_SITE_URL}#g' sitemap.xml robots.txt
+
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
