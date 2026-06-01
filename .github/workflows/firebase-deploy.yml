@@ -9,7 +9,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Rewrite sitemap for Firebase host
+      - name: Rewrite URLs for Firebase host
         env:
           FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
         run: |
@@ -19,7 +19,7 @@ jobs:
           fi
 
           FIREBASE_SITE_URL="${FIREBASE_SITE_URL%/}"
-          perl -0pi -e 's#https://bikram-agarwal\.github\.io#$ENV{FIREBASE_SITE_URL}#g' sitemap.xml robots.txt
+          find . -path '*/.*' -prune -o -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) -exec perl -pi -e 's#https://bikram-agarwal\.github\.io#$ENV{FIREBASE_SITE_URL}#g' {} +
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
