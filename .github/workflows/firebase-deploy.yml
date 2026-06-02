@@ -9,17 +9,17 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Rewrite URLs for Firebase host
-        env:
-          FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
-        run: |
-          if [ -z "$FIREBASE_SITE_URL" ]; then
-            echo "Set the FIREBASE_SITE_URL repository variable to your custom domain, for example https://example.com"
-            exit 1
-          fi
-
-          FIREBASE_SITE_URL="${FIREBASE_SITE_URL%/}"
-          find . -path '*/.*' -prune -o -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) -exec perl -pi -e 's#https://bikram-agarwal\.github\.io#$ENV{FIREBASE_SITE_URL}#g' {} +
+#      - name: Rewrite URLs for Firebase host
+#        env:
+#          FIREBASE_SITE_URL: ${{ vars.FIREBASE_SITE_URL }}
+#        run: |
+#          if [ -z "$FIREBASE_SITE_URL" ]; then
+#            echo "Set the FIREBASE_SITE_URL repository variable to your custom domain, for example https://example.com"
+#            exit 1
+#          fi
+#
+#          FIREBASE_SITE_URL="${FIREBASE_SITE_URL%/}"
+#          find . -path '*/.*' -prune -o -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) -exec perl -pi -e 's#https://bikram-agarwal\.github\.io#$ENV{FIREBASE_SITE_URL}#g' {} +
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
