@@ -1290,6 +1290,7 @@ a.featured-mention:focus-visible {
 }
 
 .featured-mention-text {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -1310,6 +1311,12 @@ a.featured-mention:focus-visible {
   margin-top: 0.25rem;
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   line-height: 1.15;
+}
+
+.featured-mention strong.featured-mention-quote {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 650;
+  line-height: 1.35;
 }
 
 .featured-mention-text .featured-mention-body {
@@ -1346,6 +1353,14 @@ a.featured-mention:focus-visible {
 .featured-mention-logo svg {
   width: 1.9rem;
   height: auto;
+}
+
+.featured-mention-logo svg.ap-logo {
+  width: 2.6rem;
+}
+
+.featured-mention-logo .ap-logo-ink {
+  fill: var(--text);
 }
 
 a.featured-mention:hover .featured-mention-logo,
@@ -2044,11 +2059,16 @@ a.featured-mention:focus-visible .featured-mention-logo {
     margin-top: 0.75rem;
   }
 
-  .project-hero .featured-mention {
+  .project-hero .featured-mention,
+  .project-hero .featured-mentions {
     grid-column: 1 / -1;
     grid-row: 6;
     width: 100%;
     max-width: none;
+    margin-top: 0.5rem;
+  }
+
+  .project-hero .featured-mentions > .featured-mention {
     margin-top: 0.5rem;
   }
 
