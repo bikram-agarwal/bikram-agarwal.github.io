@@ -37,7 +37,7 @@
     </details>
     <article class="content-card">
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: May 14, 2026 | for App: Remember</p>
+      <p class="meta">Last updated: November 24, 2026 | for App: Remember</p>
 
       <h2>Summary</h2>
       <p>
@@ -143,7 +143,7 @@
         <li><strong>Google Play</strong> — exact alarm access (<code>SCHEDULE_EXACT_ALARM</code>) is user-grantable on Android 12 and above. Some OEMs grant it by default; others do not. If it is not already granted, enabling "Reliable Reminders" in Settings navigates you to the relevant Android settings screen. Full reliable reminder delivery on Play Store requires both exact alarm access and the battery optimization exemption above.</li>
       </ul>
       <p>
-        Reminders you mark as High importance are exempt from both of the above: they use Android's alarm clock API (<code>setAlarmClock</code>), which is always precise and always Doze-exempt regardless of which flavor you installed or what you have granted.
+        Reminders you mark as High or Critical importance use Android's alarm clock API (<code>setAlarmClock</code>), which Android never delays, even in Doze. It still relies on the exact alarm access above: on Google Play, if that access is not granted, these reminders fall back to a standard alarm that Android may delay. Critical reminders also ring again every 15 minutes until you mark them done, and each ring stops after the duration you choose; both use the same alarm clock API.
       </p>
 
       <h3>Optional: app lock</h3>
